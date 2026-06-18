@@ -1,29 +1,14 @@
 export default Preview;
 
-function Preview({
-  fullName,
-  email,
-  phone,
-  address,
-  companyName,
-  position,
-  companyStartDate,
-  companyEndDate,
-  companyDescription,
-  institutionName,
-  degree,
-  institutionStartDate,
-  institutionEndDate,
-  educationDescription,
-}) {
+function Preview({ generalInfo, experience, education }) {
   return (
     <article className="cv-sheet">
       <div className="preview-general-info">
-        <h1>{fullName} John Doe</h1>
+        <h1>{generalInfo.fullName || 'John Doe'}</h1>
         <div className="preview-details-wrapper">
-          <p className="">{email}</p>
-          <p className="">{phone}</p>
-          <p className="">{address}</p>
+          <p className="">{generalInfo.email}</p>
+          <p className="">{generalInfo.phone}</p>
+          <p className="">{generalInfo.address}</p>
         </div>
       </div>
 
@@ -31,13 +16,15 @@ function Preview({
 
       <div className="preview-experience">
         <h2>Experience</h2>
-        <p>{companyName}</p>
+        <p>{experience.companyName}</p>
         <div className="preview-company-details">
-          <p className="preview-company-position">{position}</p>
+          <p className="preview-company-position">{experience.position}</p>
           <p className="preview-company-dates">
-            {companyStartDate} ー {companyEndDate}
+            {experience.companyStartDate} ー {experience.companyEndDate}
           </p>
-          <p className="preview-company-description">{companyDescription}</p>
+          <p className="preview-company-description">
+            {experience.companyDescription}
+          </p>
         </div>
       </div>
 
@@ -45,14 +32,14 @@ function Preview({
 
       <div className="preview-education">
         <h2>Education</h2>
-        <p>{institutionName}</p>
+        <p>{education.institutionName}</p>
         <div className="preview-education-details">
-          <p className="preview-education-degree">{degree}</p>
+          <p className="preview-education-degree">{education.degree}</p>
           <p className="preview-education-dates">
-            {institutionStartDate} ー {institutionEndDate}
+            {education.institutionStartDate} ー {education.institutionEndDate}
           </p>
           <p className="preview-education-description">
-            {educationDescription}
+            {education.educationDescription}
           </p>
         </div>
       </div>

@@ -1,9 +1,31 @@
+import { useState } from 'react';
 import Input from './Input.jsx';
 import TextArea from './TextArea.jsx';
 
 export default Experience;
 
-function Experience() {
+function Experience({ onFormSubmit }) {
+  const [experience, setExperience] = useState({
+    companyName: '',
+    position: '',
+    companyStartDate: '',
+    companyEndDate: '',
+    companyDescription: '',
+  });
+
+  function handleExperienceChange(event) {
+    const { name, value } = event.target;
+    setExperience({
+      ...experience,
+      [name]: value,
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onFormSubmit(experience);
+  }
+
   return (
     <section className="experience-wrapper">
       <h2>
@@ -22,6 +44,7 @@ function Experience() {
         method="POST"
         className="experience-form"
         id="experience-form"
+        onSubmit={handleSubmit}
       >
         <div className="company-title">
           <h3>company 1</h3>
@@ -39,40 +62,45 @@ function Experience() {
         <Input
           title="Company"
           id="company-name"
+          name="companyName"
           type="text"
-          // handleChange=""
+          handleChange={handleExperienceChange}
           // value=""
           className="input company-name-input"
         />
         <Input
           title="Position"
           id="position-name"
+          name="position"
           type="text"
-          // handleChange=""
+          handleChange={handleExperienceChange}
           // value=""
           className="input position-input"
         />
         <Input
           title="Start Date"
           id="company-start-date"
+          name="companyStartDate"
           type="date"
-          // handleChange=""
+          handleChange={handleExperienceChange}
           // value=""
           className="input company-start-date-input"
         />
         <Input
           title="End Date"
           id="company-end-date"
+          name="companyEndDate"
           type="date"
-          // handleChange=""
+          handleChange={handleExperienceChange}
           // value=""
           className="input company-end-date-input"
         />
         <TextArea
           title="Responsibilities"
           id="responsibilities-description"
+          name="companyDescription"
           size={5}
-          // handleChange=""
+          handleChange={handleExperienceChange}
           // value=""
         />
         <button type="submit">

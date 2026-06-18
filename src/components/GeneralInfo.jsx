@@ -1,8 +1,29 @@
+import { useState } from 'react';
 import Input from './Input.jsx';
 
 export default GeneralInfo;
 
-function GeneralInfo() {
+function GeneralInfo({ onFormSubmit }) {
+  const [generalInfo, setGeneralInfo] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    address: '',
+  });
+
+  function handleGeneralChange(event) {
+    const { name, value } = event.target;
+    setGeneralInfo({
+      ...generalInfo,
+      [name]: value,
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onFormSubmit(generalInfo);
+  }
+
   return (
     <section className="general-info-wrapper">
       <h2>General Information</h2>
@@ -12,36 +33,41 @@ function GeneralInfo() {
         id="general-info-form"
         className="general-info-form"
         autoComplete="on"
+        onSubmit={handleSubmit}
       >
         <Input
           title="Full Name"
           id="full-name"
+          name="fullName"
           type="text"
-          // handleChange=""
+          handleChange={handleGeneralChange}
           // value=""
           className="input full-name-input"
         />
         <Input
           title="Email"
           id="email"
+          name="email"
           type="email"
-          // handleChange=""
+          handleChange={handleGeneralChange}
           // value=""
           className="input email-input"
         />
         <Input
           title="Phone"
           id="phone"
+          name="phone"
           type="tel"
-          // handleChange=""
+          handleChange={handleGeneralChange}
           // value=""
           className="input phone-input"
         />
         <Input
           title="Address"
           id="address"
+          name="address"
           type="text"
-          // handleChange=""
+          handleChange={handleGeneralChange}
           // value=""
           className="input address-input"
         />

@@ -1,9 +1,31 @@
+import { useState } from 'react';
 import Input from './Input.jsx';
 import TextArea from './TextArea.jsx';
 
 export default Education;
 
-function Education() {
+function Education({ onFormSubmit }) {
+  const [education, setEducation] = useState({
+    institutionName: '',
+    degree: '',
+    institutionStartDate: '',
+    institutionEndDate: '',
+    institutionDescription: '',
+  });
+
+  function handleEducationChange(event) {
+    const { name, value } = event.target;
+    setEducation({
+      ...education,
+      [name]: value,
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onFormSubmit(education);
+  }
+
   return (
     <section className="education-wrapper">
       <h2>
@@ -22,6 +44,7 @@ function Education() {
         method="POST"
         className="experience-form"
         id="experience-form"
+        onSubmit={handleSubmit}
       >
         <div className="education-title">
           <h3>University 1</h3>
@@ -29,41 +52,46 @@ function Education() {
         </div>
         <Input
           title="Institution"
-          id="education-name"
+          id="institution-name"
+          name="institutionName"
           type="text"
-          // handleChange=""
+          handleChange={handleEducationChange}
           // value=""
           className="input education-name-input"
         />
         <Input
           title="Degree"
           id="degree-name"
+          name="degree"
           type="text"
-          // handleChange=""
+          handleChange={handleEducationChange}
           // value=""
           className="input degree-name-input"
         />
         <Input
           title="Start Date"
           id="institution-start-date"
+          name="institutionStartDate"
           type="date"
-          // handleChange=""
+          handleChange={handleEducationChange}
           // value=""
           className="input institution-start-date-input"
         />
         <Input
           title="End Date"
           id="institution-end-date"
+          name="institutionEndDate"
           type="date"
-          // handleChange=""
+          handleChange={handleEducationChange}
           // value=""
           className="input institution-end-date-input"
         />
         <TextArea
           title="Description"
-          id="education-description"
+          id="institution-description"
+          name="institutionDescription"
           size={5}
-          // handleChange=""
+          handleChange={handleEducationChange}
           // value=""
         />
         <button type="submit">
