@@ -41,7 +41,7 @@ function GeneralInfo({ onFormSubmit }) {
           name="fullName"
           type="text"
           handleChange={handleGeneralChange}
-          // value=""
+          value={generalInfo.fullName}
           className="input full-name-input"
         />
         <Input
@@ -50,7 +50,7 @@ function GeneralInfo({ onFormSubmit }) {
           name="email"
           type="email"
           handleChange={handleGeneralChange}
-          // value=""
+          value={generalInfo.email}
           className="input email-input"
         />
         <Input
@@ -59,7 +59,7 @@ function GeneralInfo({ onFormSubmit }) {
           name="phone"
           type="tel"
           handleChange={handleGeneralChange}
-          // value=""
+          value={generalInfo.phone}
           className="input phone-input"
         />
         <Input
@@ -68,7 +68,7 @@ function GeneralInfo({ onFormSubmit }) {
           name="address"
           type="text"
           handleChange={handleGeneralChange}
-          // value=""
+          value={generalInfo.address}
           className="input address-input"
         />
         <button type="submit">

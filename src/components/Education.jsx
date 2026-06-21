@@ -4,7 +4,7 @@ import TextArea from './TextArea.jsx';
 
 export default Education;
 
-function Education({ onFormSubmit }) {
+function Education({ onFormSubmit, onDelete }) {
   const [education, setEducation] = useState({
     institutionName: '',
     degree: '',
@@ -38,7 +38,7 @@ function Education({ onFormSubmit }) {
         <div className="education-title">
           <h3>{education.institutionName || 'University X'}</h3>
 
-          <button type="button">
+          <button type="button" onClick={onDelete}>
             {' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"

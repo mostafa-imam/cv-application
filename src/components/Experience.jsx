@@ -4,7 +4,7 @@ import TextArea from './TextArea.jsx';
 
 export default Experience;
 
-function Experience({ onFormSubmit }) {
+function Experience({ onFormSubmit, onDelete }) {
   const [experience, setExperience] = useState({
     companyName: '',
     position: '',
@@ -37,7 +37,7 @@ function Experience({ onFormSubmit }) {
       >
         <div className="company-title">
           <h3>{experience.companyName || 'Company X'}</h3>
-          <button type="button">
+          <button type="button" onClick={onDelete}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

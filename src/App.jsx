@@ -45,6 +45,14 @@ export default function App() {
     setEducation([...education, { id: crypto.randomUUID() }]);
   }
 
+  function handleDeleteExperience(id) {
+    setExperiences(experiences.filter((exp) => exp.id !== id));
+  }
+
+  function handleDeleteEducation(id) {
+    setEducation(education.filter((ed) => ed.id !== id));
+  }
+
   return (
     <>
       <main>
@@ -67,6 +75,7 @@ export default function App() {
               <Experience
                 key={exp.id}
                 onFormSubmit={(data) => handleExperienceSubmit(exp.id, data)}
+                onDelete={() => handleDeleteExperience(exp.id)}
               />
             ))}
 
@@ -91,6 +100,7 @@ export default function App() {
               <Education
                 key={ed.id}
                 onFormSubmit={(data) => handleEducationSubmit(ed.id, data)}
+                onDelete={() => handleDeleteEducation(ed.id)}
               />
             ))}
 

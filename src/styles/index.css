@@ -115,6 +115,11 @@ h6 {
     background-color: #f3f4f6;
     padding-left: var(--fs-2);
     padding-right: var(--fs-2);
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 svg {
