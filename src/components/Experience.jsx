@@ -47,7 +47,7 @@ function Experience({ onFormSubmit }) {
         onSubmit={handleSubmit}
       >
         <div className="company-title">
-          <h3>company 1</h3>
+          <h3>{experience.companyName || 'Company X'}</h3>
           <button type="button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ function Experience({ onFormSubmit }) {
           name="companyName"
           type="text"
           handleChange={handleExperienceChange}
-          // value=""
+          value={experience.companyName}
           className="input company-name-input"
         />
         <Input
@@ -74,7 +74,7 @@ function Experience({ onFormSubmit }) {
           name="position"
           type="text"
           handleChange={handleExperienceChange}
-          // value=""
+          value={experience.position}
           className="input position-input"
         />
         <Input
@@ -83,7 +83,7 @@ function Experience({ onFormSubmit }) {
           name="companyStartDate"
           type="date"
           handleChange={handleExperienceChange}
-          // value=""
+          value={experience.companyStartDate}
           className="input company-start-date-input"
         />
         <Input
@@ -92,7 +92,7 @@ function Experience({ onFormSubmit }) {
           name="companyEndDate"
           type="date"
           handleChange={handleExperienceChange}
-          // value=""
+          value={experience.companyEndDate}
           className="input company-end-date-input"
         />
         <TextArea
@@ -101,7 +101,8 @@ function Experience({ onFormSubmit }) {
           name="companyDescription"
           size={5}
           handleChange={handleExperienceChange}
-          // value=""
+          value={experience.companyDescription}
+          className="text-area experience-text-area"
         />
         <button type="submit">
           <svg

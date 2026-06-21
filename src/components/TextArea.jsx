@@ -1,19 +1,20 @@
 export default TextArea;
 
-function TextArea({ title, id, size, handleChange, value }) {
+function TextArea({ title, id, name, size, handleChange, value, className }) {
   return (
     <div className="form-row">
       <label htmlFor={id}>{title}</label>
 
       <textarea
-        name={id}
+        name={name}
         id={id}
         onChange={handleChange}
         rows={size}
         cols={size * 3}
         placeholder="description..."
         value={value}
-      ></textarea>
+        className={className}
+      />
     </div>
   );
 }

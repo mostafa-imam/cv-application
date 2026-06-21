@@ -1,6 +1,6 @@
 export default Input;
 
-function Input({ title, id, name, type, handleChange, value }) {
+function Input({ title, id, name, type, handleChange, value, className }) {
   return (
     <div className="form-row">
       <label htmlFor={id}>{title}</label>
@@ -11,6 +11,7 @@ function Input({ title, id, name, type, handleChange, value }) {
         name={name}
         value={value}
         onChange={handleChange}
+        className={className}
       />
     </div>
   );

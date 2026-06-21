@@ -1,0 +1,217 @@
+/* --------- general layout ------------------ */
+
+main,
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+main {
+    margin-bottom: var(--fs-3);
+}
+
+/* ------------- preview + editor sections ----------- */
+.preview,
+.general-info-wrapper,
+.experience,
+.education {
+    box-shadow: 0px 0px 20px 3px #dedede;
+    border: 1px solid #dedede;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* --------- editor (left side) -------------- */
+.editor {
+    padding-top: var(--fs-5);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input,
+.text-area {
+    width: 60%;
+    border-radius: 5px;
+    padding-left: 10px;
+    background-color: #eeeeee;
+    border: 1px solid rgb(213, 213, 213);
+}
+
+.general-info-wrapper,
+.experience,
+.education {
+    margin-bottom: 30px;
+    padding: var(--fs-1);
+}
+
+/* --------- small editor components ----------- */
+
+textarea {
+    resize: vertical
+}
+
+.editor h2 {
+    display: flex;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+div.company-title,
+div.education-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+div.company-title>button,
+div.education-title>button {
+    width: fit-content;
+    background-color: #f3f4f6;
+}
+
+hr {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.05s ease-in-out;
+    background-color: rgb(187, 209, 255);
+}
+
+button:hover {
+    background-color: rgb(130, 170, 255);
+    transform: scale(1.02);
+}
+
+h2>svg {
+    margin-right: 10px;
+    align-self: center;
+}
+
+button>svg {
+    align-self: center;
+}
+
+button[type="submit"]>svg {
+    margin-right: 5px;
+}
+
+/* --------- preview (right side) ---------- */
+
+.preview {
+    padding: var(--fs-2);
+    padding-bottom: var(--fs-4);
+}
+
+.preview,
+.preview-experience h2 {
+    text-align: center;
+}
+
+.preview-details-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.preview-details-wrapper>span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.preview-experience>p:first-of-type,
+.preview-education>p:first-of-type {
+    text-align: left;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.preview-company-details,
+.preview-education-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview-company-description,
+.preview-education-description {
+    text-align: left;
+}
+
+.preview-general-info,
+.preview-experience {
+    margin-bottom: var(--fs-4);
+}
+
+.preview-experience,
+.preview-education {
+    margin-bottom: var(--fs-4);
+}
+
+/* ------------ footer ------------------ */
+
+footer {
+    border-top: 1px solid rgb(155, 155, 155);
+}
+
+.footer-container {
+    padding: var(--fs-1);
+}
+
+.footer-container>p {
+    display: flex;
+    align-items: center;
+}
+
+.footer-container svg {
+    margin-left: 10px;
+}
+
+.footer-container a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ---------- large screens ------------ */
+
+@media (min-width: 1200px) {
+    main {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 50px;
+        padding-top: 50px;
+    }
+
+    .editor {
+        padding: 0;
+        width: 100%;
+    }
+
+    .preview {
+        max-height: max-content;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding: var(--fs-2) var(--fs-4);
+        padding-bottom: var(--fs-4);
+    }
+
+    .preview-details-wrapper {
+        flex-direction: row;
+    }
+}

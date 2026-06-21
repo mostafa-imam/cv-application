@@ -47,8 +47,19 @@ function Education({ onFormSubmit }) {
         onSubmit={handleSubmit}
       >
         <div className="education-title">
-          <h3>University 1</h3>
-          <button type="button">X</button>
+          <h3>{education.institutionName || 'University X'}</h3>
+
+          <button type="button">
+            {' '}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              style={{ width: '20px', height: '20px' }}
+            >
+              <title>trash-can-outline</title>
+              <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+            </svg>
+          </button>
         </div>
         <Input
           title="Institution"
@@ -56,7 +67,7 @@ function Education({ onFormSubmit }) {
           name="institutionName"
           type="text"
           handleChange={handleEducationChange}
-          // value=""
+          value={education.institutionName}
           className="input education-name-input"
         />
         <Input
@@ -65,7 +76,7 @@ function Education({ onFormSubmit }) {
           name="degree"
           type="text"
           handleChange={handleEducationChange}
-          // value=""
+          value={education.degree}
           className="input degree-name-input"
         />
         <Input
@@ -74,7 +85,7 @@ function Education({ onFormSubmit }) {
           name="institutionStartDate"
           type="date"
           handleChange={handleEducationChange}
-          // value=""
+          value={education.institutionStartDate}
           className="input institution-start-date-input"
         />
         <Input
@@ -83,7 +94,7 @@ function Education({ onFormSubmit }) {
           name="institutionEndDate"
           type="date"
           handleChange={handleEducationChange}
-          // value=""
+          value={education.institutionEndDate}
           className="input institution-end-date-input"
         />
         <TextArea
@@ -92,7 +103,8 @@ function Education({ onFormSubmit }) {
           name="institutionDescription"
           size={5}
           handleChange={handleEducationChange}
-          // value=""
+          className="text-area education-text-area"
+          value={education.institutionDescription}
         />
         <button type="submit">
           <svg
