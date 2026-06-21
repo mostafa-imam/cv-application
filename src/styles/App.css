@@ -8,6 +8,7 @@ main,
 
 main {
     margin-bottom: var(--fs-3);
+    position: relative;
 }
 
 /* ------------- preview + editor sections ----------- */
@@ -78,8 +79,8 @@ div.education-title>button {
 }
 
 hr {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 button {
@@ -115,6 +116,8 @@ button[type="submit"]>svg {
 .preview {
     padding: var(--fs-2);
     padding-bottom: var(--fs-4);
+    position: sticky;
+    top: 50px;
 }
 
 .preview,
@@ -136,8 +139,9 @@ button[type="submit"]>svg {
     gap: 5px;
 }
 
-.preview-experience>p:first-of-type,
-.preview-education>p:first-of-type {
+.preview-company-title,
+.preview-education-title {
+    margin-top: var(--fs-3);
     text-align: left;
     font-weight: bold;
     font-size: x-large;
@@ -156,7 +160,7 @@ button[type="submit"]>svg {
 
 .preview-general-info,
 .preview-experience {
-    margin-bottom: var(--fs-4);
+    margin-bottom: var(--fs-3);
 }
 
 .preview-experience,

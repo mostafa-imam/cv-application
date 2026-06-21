@@ -1,6 +1,8 @@
+import { Fragment } from 'react';
+
 export default Preview;
 
-function Preview({ generalInfo, experience, education }) {
+function Preview({ generalInfo, experiences, education }) {
   return (
     <article className="cv-sheet">
       <div className="preview-general-info">
@@ -51,37 +53,49 @@ function Preview({ generalInfo, experience, education }) {
       <div className="preview-experience">
         <h2>Experience</h2>
         <hr />
-        <p>{experience.companyName || 'Company X'}</p>
-        <div className="preview-company-details">
-          <p className="preview-company-position">
-            {experience.position || 'Senior Developer'}
-          </p>
-          <p className="preview-company-dates">
-            {experience.companyStartDate || '2015-09-07'} ー{' '}
-            {experience.companyEndDate || '2026-07-05'}
-          </p>
-        </div>
-        <p className="preview-company-description">
-          {experience.companyDescription || 'Write a short description...'}
-        </p>
+        {experiences.map((exp) => (
+          <Fragment key={exp.id}>
+            <p className="preview-company-title">
+              {exp.companyName || 'Company X'}
+            </p>
+            <div className="preview-company-details">
+              <p className="preview-company-position">
+                {exp.position || 'Senior Developer'}
+              </p>
+              <p className="preview-company-dates">
+                {exp.companyStartDate || '2015-09-07'} ー{' '}
+                {exp.companyEndDate || '2026-07-05'}
+              </p>
+            </div>
+            <p className="preview-company-description">
+              {exp.companyDescription || 'Write a short description...'}
+            </p>
+          </Fragment>
+        ))}
       </div>
 
       <div className="preview-education">
         <h2>Education</h2>
         <hr />
-        <p>{education.institutionName || 'Institution X'}</p>
-        <div className="preview-education-details">
-          <p className="preview-education-degree">
-            {education.degree || 'B.S. in CS'}
-          </p>
-          <p className="preview-education-dates">
-            {education.institutionStartDate || '2018-07-06'} ー{' '}
-            {education.institutionEndDate || '2022-05-04'}
-          </p>
-        </div>
-        <p className="preview-education-description">
-          {education.institutionDescription || 'Write a short description...'}
-        </p>
+        {education.map((ed) => (
+          <Fragment key={ed.id}>
+            <p className="preview-education-title">
+              {ed.institutionName || 'Institution X'}
+            </p>
+            <div className="preview-education-details">
+              <p className="preview-education-degree">
+                {ed.degree || 'B.S. in CS'}
+              </p>
+              <p className="preview-education-dates">
+                {ed.institutionStartDate || '2018-07-06'} ー{' '}
+                {ed.institutionEndDate || '2022-05-04'}
+              </p>
+            </div>
+            <p className="preview-education-description">
+              {ed.institutionDescription || 'Write a short description...'}
+            </p>
+          </Fragment>
+        ))}
       </div>
     </article>
   );
